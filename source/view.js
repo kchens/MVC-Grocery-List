@@ -1,17 +1,21 @@
 function Display() {
   //list down all HTML elements we're manipulating
-  this.groceryList = "#grocery_list";
-  this.item = ".item";
+  this.groceryList = $("#grocery_list");
+  this.items = $(".item"); //"items" bc it's a class .item
   //list elements that we will attach to
-  this.totalCost= "#total_cost";
+  this.totalCost= $("#total_cost");
 };
 
 Display.prototype = {
-  appendItem: function() {
-    //add item name to groceryList
-    //add item price to groceryList
+  appendItem: function(itemNode) {
+    this.groceryList.append(itemNode);
+    item = {
+      name: $(itemNode).find('.item_name').text(),
+      price: parseFloat($(itemNode).find('.item_price').text());
+    }
+    return item;
   },
-  appentTotal: function() {
-    //display current state of
+  appendTotal: function(totalPrice) { //pass totalPrice from model
+    this.totalCost.append(totalPrice);
   }
 }
