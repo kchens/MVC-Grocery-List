@@ -28,7 +28,6 @@ Controller.prototype = {
         self.list.addItem(item.name, item.price);
         var totalPrice = self.list.calculateTotal();
         self.view.appendTotal(totalPrice);
-        console.log("end")
       }
     })
   },
